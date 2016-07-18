@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if not isnew %}
+        Certificate {{ cert.filename }} is updated.
+    {% else %}
+        Certificate {{ cert.filename }} is added.
+    {% endif %}
+    <hr/>
+    <table>
+
+    {% for field, value in vdict.items %}
+        <tr>
+            <td><b>{{ field }}</b></td>
+            <td>{{ value }}</td>
+        </tr>
+
+    {% endfor %}
+    </table>
+    <hr/>
+    Return to <a href="{% url 'index' %}"> main page. </a>
+{% endblock %}

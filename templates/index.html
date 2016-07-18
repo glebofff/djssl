@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    Hello, dear friend!
+    <hr/>
+    {% if count %}
+
+        Total count of certificates: {{ count }}
+    {% else %}
+        There is no uploaded certificates in system yet.
+    {% endif %}
+    <hr/>
+
+    <form method="POST" action="/upload/" enctype="multipart/form-data">
+    {% csrf_token %}
+        Upload new certificate: {{ form.file }}
+    <input type="submit"/>
+    </form>
+
+{% endblock %}
